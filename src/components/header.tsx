@@ -4,6 +4,7 @@ import MenuIcon from "@/assets/icon-hamburger.svg?react";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
+import { CallToActionButton } from "./call-to-action-button";
 import { Logo } from "./logo";
 
 const pages = ["Home", "About", "Contact", "Blog", "Careers"];
@@ -36,18 +37,45 @@ export function Header() {
         />
       )}
 
-      <header className="fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-white p-6">
-        <Logo />
+      <header className="fixed left-0 top-0 z-10 flex w-full items-center justify-center bg-white p-6 md:min-w-[1300px] md:p-0">
+        <div className="flex w-full max-w-screen-lg items-center justify-between md:h-24">
+          <Logo />
 
-        {openNav ? (
-          <button onClick={() => setCloseNav(true)}>
-            <CloseIcon />
-          </button>
-        ) : (
-          <button onClick={() => setOpenNav(true)}>
-            <MenuIcon />
-          </button>
-        )}
+          <ul className="hidden h-full gap-4 rounded-md bg-white md:flex">
+            {pages.map((page, index) => (
+              <li
+                key={index}
+                className="group relative flex h-full flex-col justify-center px-2"
+              >
+                <a
+                  href="#"
+                  onClick={() => setCloseNav(true)}
+                  className="text-darkBlue/75 transition-colors group-hover:text-darkBlue"
+                >
+                  {page}
+                </a>
+
+                <div className="absolute bottom-0 left-0 h-1 w-full scale-0 rounded-full bg-gradient-to-br from-limeGreen to-brightCyan transition-transform group-hover:scale-100" />
+              </li>
+            ))}
+          </ul>
+
+          <div className="hidden md:block">
+            <CallToActionButton />
+          </div>
+
+          <div className="md:hidden">
+            {openNav ? (
+              <button onClick={() => setCloseNav(true)}>
+                <CloseIcon />
+              </button>
+            ) : (
+              <button onClick={() => setOpenNav(true)}>
+                <MenuIcon />
+              </button>
+            )}
+          </div>
+        </div>
 
         {openNav && (
           <nav

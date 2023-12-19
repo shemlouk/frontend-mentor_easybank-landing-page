@@ -26,32 +26,41 @@ const pages = [
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-8 bg-darkBlue p-8 pb-14">
-      <Logo color="#fff" />
+    <footer className="bg-darkBlue p-8 pb-14 md:flex md:justify-center">
+      <div className="flex max-w-screen-lg flex-col items-center gap-8 md:w-full md:flex-row md:justify-between">
+        <div className="flex flex-col items-center gap-8">
+          <Logo color="#fff" />
 
-      <ul className="flex items-center gap-4">
-        {socialMedias.map((item, index) => (
-          <li key={index}>
-            <a href={item.href} target="_blank">
-              <item.icon className="scale-110 transition-transform hover:scale-125" />
-            </a>
-          </li>
-        ))}
-      </ul>
+          <ul className="flex items-center gap-4">
+            {socialMedias.map((item, index) => (
+              <li key={index}>
+                <a href={item.href} target="_blank">
+                  <item.icon
+                    fill="#fff"
+                    className="scale-110 transition-transform hover:scale-125 hover:fill-emerald-500"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <ul className="flex flex-col items-center gap-2 text-white/80">
-        {pages.map((page, index) => (
-          <li key={index}>
-            <a href="#" className="transition-colors hover:text-white">
-              {page}
-            </a>
-          </li>
-        ))}
-      </ul>
+        <ul className="flex flex-col items-center gap-2 text-white/80 md:h-1/2 md:-translate-x-1/2 md:flex-wrap">
+          {pages.map((page, index) => (
+            <li key={index} className="md:flex md:w-28 md:justify-start">
+              <a href="#" className="transition-colors hover:text-emerald-500">
+                {page}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-      <CallToActionButton />
+        <div className="flex flex-col items-center gap-8">
+          <CallToActionButton />
 
-      <p className="text-white/40">© Easybank. All Rights Reserved</p>
+          <p className="text-white/40">© Easybank. All Rights Reserved</p>
+        </div>
+      </div>
     </footer>
   );
 }

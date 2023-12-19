@@ -32,33 +32,35 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section className="flex flex-col items-center gap-16 bg-lightGrayishBlue px-4 py-16">
-      <div className="flex flex-col gap-4 px-4">
-        <h2 className="text-3xl font-light leading-snug text-darkBlue">
-          Why choose Easybank?
-        </h2>
+    <section className="bg-lightGrayishBlue px-4 py-16 md:flex md:justify-center md:py-24">
+      <div className="flex max-w-screen-lg flex-col items-center gap-16 md:items-start">
+        <div className="flex flex-col gap-4 px-4 md:w-1/2 md:gap-8 md:text-start">
+          <h2 className="text-3xl font-light leading-snug text-darkBlue md:text-4xl">
+            Why choose Easybank?
+          </h2>
 
-        <p>
-          We leverage Open Banking to turn your bank account into your financial
-          hub. Control your finances like never before.
-        </p>
+          <p>
+            We leverage Open Banking to turn your bank account into your
+            financial hub. Control your finances like never before.
+          </p>
+        </div>
+
+        <ul className="flex flex-col gap-8 md:flex-row">
+          {benefits.map((benefit, index) => (
+            <li key={index}>
+              <div className="flex flex-col items-center gap-4 md:w-64 md:items-start md:gap-6 md:text-start">
+                <benefit.icon className="mb-2" />
+
+                <h3 className="text-xl font-light text-darkBlue">
+                  {benefit.title}
+                </h3>
+
+                <p>{benefit.content}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul className="flex flex-col gap-8">
-        {benefits.map((benefit, index) => (
-          <li key={index}>
-            <div className="flex flex-col items-center gap-4">
-              <benefit.icon className="mb-2" />
-
-              <h3 className="text-xl font-light text-darkBlue">
-                {benefit.title}
-              </h3>
-
-              <p>{benefit.content}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

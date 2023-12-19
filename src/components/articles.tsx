@@ -35,40 +35,42 @@ const articles = [
 
 export function Articles() {
   return (
-    <section className="flex flex-col gap-8 bg-veryLightGray px-4 py-16">
-      <h2 className="text-3xl font-light leading-snug text-darkBlue">
-        Latest Articles
-      </h2>
+    <section className="bg-veryLightGray px-4 py-16 md:flex md:justify-center">
+      <div className="flex max-w-screen-lg flex-col gap-8 md:gap-12">
+        <h2 className="text-3xl font-light leading-snug text-darkBlue md:text-start md:text-4xl">
+          Latest Articles
+        </h2>
 
-      <ul className="flex flex-col gap-8">
-        {articles.map((article, index) => (
-          <li key={index}>
-            <div className="overflow-hidden rounded-md bg-white shadow-[0_8px_30px_rgb(0,0,0,0.01)]">
-              <a href="#">
-                <figure className="overflow-hidden transition-all hover:brightness-75">
-                  <img
-                    src={article.imageHref}
-                    alt={article.imageAlt}
-                    className="w-full transition-transform hover:scale-105"
-                  />
-                </figure>
-              </a>
-
-              <div className="flex flex-col gap-2 p-6 text-start">
-                <p className="text-sm">By {article.author}</p>
-
-                <a href="#">
-                  <h3 className="text-xl text-darkBlue/90 hover:text-darkBlue">
-                    {article.title}
-                  </h3>
+        <ul className="flex flex-col gap-8 md:flex-row md:flex-wrap 2xl:w-screen">
+          {articles.map((article, index) => (
+            <li key={index}>
+              <div className="overflow-hidden rounded-md bg-white shadow-[0_8px_30px_rgb(0,0,0,0.01)] md:flex md:h-full md:w-72 md:flex-col md:justify-between">
+                <a href="#" className="md:flex-1">
+                  <figure className="overflow-hidden transition-all hover:brightness-75 md:h-full">
+                    <img
+                      src={article.imageHref}
+                      alt={article.imageAlt}
+                      className="w-full object-cover transition-transform hover:scale-105 md:h-full md:w-auto"
+                    />
+                  </figure>
                 </a>
 
-                <p>{article.content}</p>
+                <div className="flex flex-col gap-2 p-6 text-start">
+                  <p className="text-sm md:text-xs">By {article.author}</p>
+
+                  <a href="#">
+                    <h3 className="text-xl text-darkBlue transition-colors hover:text-emerald-500 md:text-lg">
+                      {article.title}
+                    </h3>
+                  </a>
+
+                  <p className="md:text-sm">{article.content}</p>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
