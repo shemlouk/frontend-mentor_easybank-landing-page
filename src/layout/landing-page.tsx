@@ -1,12 +1,15 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
 
 export function LandingPage() {
   return (
-    <div className="flex h-screen w-full flex-col">
+    <div className="flex h-full w-full flex-col">
       <Header />
 
-      <main className="flex flex-col px-6 pt-[68px]"></main>
+      <main className="flex flex-col pt-16">
+        <Hero />
+      </main>
 
       <Footer />
     </div>

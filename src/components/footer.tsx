@@ -4,6 +4,7 @@ import PinterestIcon from "@/assets/icon-pinterest.svg?react";
 import TwitterIcon from "@/assets/icon-twitter.svg?react";
 import YoutubeIcon from "@/assets/icon-youtube.svg?react";
 
+import { CallToActionButton } from "./call-to-action-button";
 import { Logo } from "./logo";
 
 const socialMedias = [
@@ -48,9 +49,7 @@ export function Footer() {
         ))}
       </ul>
 
-      <button className="rounded-full bg-gradient-to-r from-limeGreen to-brightCyan px-9 py-3 font-semibold text-white">
-        Request Invite
-      </button>
+      <CallToActionButton />
 
       <p className="text-white/40">© Easybank. All Rights Reserved</p>
     </footer>
