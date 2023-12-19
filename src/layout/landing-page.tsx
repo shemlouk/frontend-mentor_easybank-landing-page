@@ -1,3 +1,4 @@
+import { Articles } from "@/components/articles";
 import { Benefits } from "@/components/benefits";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -11,6 +12,7 @@ export function LandingPage() {
       <main className="flex flex-col pt-16">
         <Hero />
         <Benefits />
+        <Articles />
       </main>
 
       <Footer />
