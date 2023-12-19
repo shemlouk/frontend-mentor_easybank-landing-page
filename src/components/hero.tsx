@@ -12,11 +12,11 @@ export function Hero() {
       <div className="flex -translate-y-16 flex-col items-center gap-6">
         <img src="/image-mockups.png" alt="hero mockups images" />
 
-        <h1 className="text-center text-4xl leading-snug text-darkBlue">
+        <h1 className="text-4xl leading-snug text-darkBlue">
           Next generation digital banking
         </h1>
 
-        <p className="text-center text-grayishBlue">
+        <p>
           Take your financial life online. Your Easybank account will be a
           one-stop-shop for spending, saving, budgeting, investing, and much
           more.
